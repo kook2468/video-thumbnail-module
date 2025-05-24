@@ -1,6 +1,6 @@
-import { Button } from "@/shared/components/ui/Button";
-import { POST_MODAL_STEP } from "../constants";
-import type { PostModalFooterProps } from "../types";
+import { Button } from "../../../../shared/components/ui/Button";
+import { POST_MODAL_STEP } from "../../constants";
+import type { PostModalFooterProps } from "../../types";
 
 export const PostModalFooter = ({
   step,

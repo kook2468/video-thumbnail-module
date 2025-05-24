@@ -21,8 +21,6 @@ export type PostModalHeaderProps = {
 
 export type PostModalContentProps = {
   step: PostModalStep;
-  content: string;
-  onContentChange: (content: string) => void;
 };
 
 export type PostModalFooterProps = {

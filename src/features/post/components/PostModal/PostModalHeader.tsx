@@ -1,5 +1,5 @@
-import type { PostModalHeaderProps } from "../types";
-import { POST_MODAL_TITLE_MAP } from "../constants";
+import type { PostModalHeaderProps } from "../../types";
+import { POST_MODAL_TITLE_MAP } from "../../constants";
 
 export const PostModalHeader = ({ step }: PostModalHeaderProps) => {
   return (
