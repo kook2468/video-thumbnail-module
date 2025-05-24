@@ -1,10 +1,13 @@
-import type { PostModalContentProps } from "../../types";
-import { POST_MODAL_STEP } from "../../constants";
+import type { PostModalStep } from "../../types";
 import { VideoStep } from "./steps/VideoStep";
 import { ThumbnailStep } from "./steps/ThumbnailStep";
 import { FormStep } from "./steps/FormStep";
+import { POST_MODAL_STEP } from "../../constants/step";
 
-export const PostModalContent = ({ step }: PostModalContentProps) => {
+type Props = {
+  step: PostModalStep;
+};
+export const PostModalContent = ({ step }: Props) => {
   switch (step) {
     case POST_MODAL_STEP.FORM:
       return <FormStep />;

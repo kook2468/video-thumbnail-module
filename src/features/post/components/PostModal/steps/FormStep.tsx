@@ -1,11 +1,11 @@
 import { useState } from "react";
-import {
-  POST_MODAL_PLACEHOLDER_MAP,
-  POST_MODAL_STEP,
-} from "../../../constants";
 import { Button } from "../../../../../shared/components/ui/Button";
 import { useModalStore } from "../../../../../stores/modal.store";
 import { BaseModalContentLayout } from "../../../../../shared/components/layout/BaseModalContentLayout";
+import {
+  POST_MODAL_PLACEHOLDER_MAP,
+  POST_MODAL_STEP,
+} from "../../../constants/step";
 
 export function FormStep() {
   const { setPostModalStep, closePostModal } = useModalStore();

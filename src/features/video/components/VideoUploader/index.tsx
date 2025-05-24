@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
-import { useVideoStore } from "../../../stores/video.store";
-import { validateVideoFile } from "../utils/validateVideo";
-import { Button } from "../../../shared/components/ui/Button";
-import { formatBytes } from "../utils/formatBytes";
+import { useVideoStore } from "../../../../stores/video.store";
+import { validateVideoFile } from "../../utils/validateVideo";
+import { Button } from "../../../../shared/components/ui/Button";
+import { formatBytes } from "../../utils/formatBytes";
 
 export function VideoUploader() {
   const inputRef = useRef<HTMLInputElement>(null);
