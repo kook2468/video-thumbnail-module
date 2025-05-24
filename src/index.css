@@ -29,3 +29,7 @@
 body {
   @apply font-pretendard text-black bg-white;
 }
+
+h1 {
+  @apply font-bold text-lg;
+}
