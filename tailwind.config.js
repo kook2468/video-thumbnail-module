@@ -6,6 +6,12 @@ export default {
       fontFamily: {
         pretendard: ["Pretendard", "sans-serif"],
       },
+      colors: {
+        brand: {
+          DEFAULT: "#00CBD5",
+          hover: "#00b6c0",
+        },
+      },
     },
   },
   plugins: [],
