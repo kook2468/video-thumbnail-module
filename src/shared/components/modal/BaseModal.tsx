@@ -1,7 +1,7 @@
 import clsx from "clsx";
+import type { ReactNode } from "react";
 
-type BaseModalProps = {
-  title?: React.ReactNode;
+type Props = {
   children: React.ReactNode;
   onClose?: () => void;
   size?: ModalSize;
@@ -15,12 +15,8 @@ const sizeMap: Record<ModalSize, string> = {
   lg: "max-w-2xl",
 };
 
-export const BaseModal = ({
-  title,
-  children,
-  onClose,
-  size = "md",
-}: BaseModalProps) => {
+export const BaseModal = ({ children, onClose, size = "md" }: Props) => {
+  console.log("BaseModal props:", { children, onClose, size });
   // const renderFooter = () => {
   //   if (footer) return footer;
 
@@ -42,24 +38,6 @@ export const BaseModal = ({
           sizeMap[size]
         )}
       >
-        {/* 헤더 */}
-        {title && (
-          <div className="mb-4 border-b border-gray-200">
-            <div className="flex justify-between items-center p-4">
-              {typeof title === "string" ? (
-                <h2 className="text-lg font-semibold">{title}</h2>
-              ) : (
-                title
-              )}
-              {onClose && (
-                <button onClick={onClose} className="text-xl">
-                  ✖
-                </button>
-              )}
-            </div>
-          </div>
-        )}
-
         {children}
         {/* 본문 */}
         {/* <div className="mb-4 p-4">{children}</div> */}
@@ -72,3 +50,11 @@ export const BaseModal = ({
     </div>
   );
 };
+
+BaseModal.Header = ({ children }: { children: ReactNode }) => (
+  <div className="border-b p-4">{children}</div>
+);
+
+BaseModal.Content = ({ children }: { children: ReactNode }) => (
+  <div className="p-4">{children}</div>
+);

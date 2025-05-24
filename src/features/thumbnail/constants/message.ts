@@ -6,6 +6,7 @@ import { POST_THUMBNAIL_LIMIT } from "./limit";
 // ==========================
 export const ERROR_MESSAGES = {
   thumbnailLimit: `최대 ${POST_THUMBNAIL_LIMIT}개의 썸네일만 선택할 수 있습니다.`,
+  duplicateTime: "이미 해당 시점의 썸네일이 존재합니다.",
 };
 
 export const NOTICE_MESSAGES = {

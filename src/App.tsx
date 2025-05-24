@@ -1,23 +1,24 @@
-import { PostModal } from "./features/post/components/PostModal";
-import { Button } from "./shared/components/ui/Button";
+import { OpenPostModalButton } from "./features/post/components/PostModal/OpenPostModalButton";
+import { ToastContainer } from "./shared/components/feedback/ToastContainer";
 import { Card } from "./shared/components/ui/Card";
-import { useModalStore } from "./stores/modal.store";
 
 function App() {
-  const { isPostModalOpen, openPostModal } = useModalStore();
-
   return (
     <>
-      <Card title="폰트 관리">
-        <p className="font-light">Light</p>
-        <p className="">Regular (기본)</p>
-        <p className="font-bold">Bold</p>
-      </Card>
+      {/* MainLayout으로 변경 예정 */}
+      <div>
+        <Card title="폰트 관리">
+          <p className="font-light">Light</p>
+          <p className="">Regular (기본)</p>
+          <p className="font-bold">Bold</p>
+        </Card>
 
-      <Card title="테스트">
-        <Button onClick={openPostModal}>포스트 쓰기</Button>
-        {isPostModalOpen && <PostModal />}
-      </Card>
+        <Card title="테스트">
+          <OpenPostModalButton />
+        </Card>
+      </div>
+
+      <ToastContainer />
     </>
   );
 }

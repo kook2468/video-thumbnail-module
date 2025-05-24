@@ -1,12 +1,16 @@
+import React from "react";
+import { useModalStore } from "../../../../stores/modal.store";
 import { POST_MODAL_TITLE_MAP } from "../../constants/step";
-import type { PostModalStep } from "../../types";
 
-type Props = {
-  step: PostModalStep;
-};
+export const PostModalHeader = React.memo(() => {
+  console.log("🔥 PostModalHeader 렌더링");
 
-export const PostModalHeader = ({ step }: Props) => {
+  const postModalStep = useModalStore((s) => s.postModalStep);
+  console.log("gdgd");
+
   return (
-    <h2 className="text-lg font-semibold">{POST_MODAL_TITLE_MAP[step]}</h2>
+    <h2 className="text-lg font-semibold">
+      {POST_MODAL_TITLE_MAP[postModalStep]}
+    </h2>
   );
-};
+});

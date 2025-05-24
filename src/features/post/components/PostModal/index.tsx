@@ -1,16 +1,18 @@
 import { BaseModal } from "../../../../shared/components/modal/BaseModal";
-import { useModalStore } from "../../../../stores/modal.store";
 import { PostModalHeader } from "./PostModalHeader";
 import { PostModalContent } from "./PostModalContent";
 
 export const PostModal = () => {
-  const { postModalStep } = useModalStore();
-
+  //컴파운드 컴포넌트 패턴!
   return (
-    <BaseModal title={<PostModalHeader step={postModalStep} />} size="lg">
-      <div className="space-y-4">
-        <PostModalContent step={postModalStep} />
-      </div>
+    <BaseModal size="lg">
+      <BaseModal.Header>
+        <PostModalHeader />
+      </BaseModal.Header>
+
+      <BaseModal.Content>
+        <PostModalContent />
+      </BaseModal.Content>
     </BaseModal>
   );
 };

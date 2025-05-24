@@ -1,16 +1,17 @@
-type ModalContentProps = {
-  content: React.ReactNode;
-  footer: React.ReactNode;
-};
+import React from "react";
 
 export const BaseModalContentLayout = ({
-  content,
-  footer,
-}: ModalContentProps) => {
-  return (
-    <>
-      <div className="p-4">{content}</div>
-      <div className="p-4 border-t border-gray-200">{footer}</div>
-    </>
-  );
-};
+  children,
+}: {
+  children: React.ReactNode;
+}) => <div className="flex flex-col gap-4">{children}</div>;
+
+BaseModalContentLayout.Body = ({ children }: { children: React.ReactNode }) => (
+  <div className="p-4">{children}</div>
+);
+
+BaseModalContentLayout.Footer = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => <div className="p-4 border-t border-gray-200">{children}</div>;
