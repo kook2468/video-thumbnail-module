@@ -6,8 +6,6 @@ import React from "react";
 import { useModalStore } from "../../../../stores/modal.store";
 
 export const PostModalContent = React.memo(() => {
-  console.log("🔥 PostModalContent 렌더링");
-
   const postModalStep = useModalStore((s) => s.postModalStep);
 
   switch (postModalStep) {

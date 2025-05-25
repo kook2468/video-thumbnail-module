@@ -7,7 +7,7 @@ export const BaseModalContentLayout = ({
 }) => <div className="flex flex-col gap-4">{children}</div>;
 
 BaseModalContentLayout.Body = ({ children }: { children: React.ReactNode }) => (
-  <div className="p-4">{children}</div>
+  <div className="px-6 py-4">{children}</div>
 );
 
 BaseModalContentLayout.Footer = ({

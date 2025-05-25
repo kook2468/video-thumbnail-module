@@ -1,45 +1,19 @@
 import { useRef, useState, type DragEvent } from "react";
 import { useVideoStore } from "../../../../stores/video.store";
-import { validateVideoFile } from "../../utils/validateVideo";
 import { Button } from "../../../../shared/components/ui/Button";
 import { formatBytes } from "../../utils/formatBytes";
-import example from "@/assets/icon/file-upload.svg";
+import ICON_FILEUPLOAD from "@/assets/icon/file-upload.svg";
 import clsx from "clsx";
-import { useToastStore } from "../../../../stores/toast.store";
 import { NOTICE_MESSAGES } from "../../constants/message";
+import { useVideoUpload } from "../../hooks/useVideoUpload";
 
 export const VideoUploader = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isDragging, setIsDragging] = useState(false);
-  const { setVideo, file, clearVideo } = useVideoStore();
-  const showToast = useToastStore((s) => s.showToast);
+  const file = useVideoStore((s) => s.file);
+  const { handleFileChange, handleFile } = useVideoUpload();
 
-  const handleFile = (file: File) => {
-    const validationError = validateVideoFile(file);
-    if (validationError) {
-      showToast(validationError, "danger");
-      clearVideo();
-      return;
-    }
-
-    setVideo(file);
-    //setError("");
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    const validationError = validateVideoFile(file);
-    if (validationError) {
-      showToast(validationError, "danger");
-      clearVideo();
-      return;
-    }
-
-    setVideo(file);
-  };
-
+  /* Drag, DragOver, DragLeave 이벤트 */
   const handleDrop = (e: DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     setIsDragging(false);
@@ -76,11 +50,10 @@ export const VideoUploader = () => {
       />
 
       <div className="bg-gray-100 p-4 rounded-full mb-4">
-        <img src={example} width={30} />
+        <img src={ICON_FILEUPLOAD} width={30} />
       </div>
 
       <div>
-        {/* {error && <p className="text-sm text-red-500">{error}</p>} */}
         {file ? (
           <div className="text-sm text-gray-700">
             <p className="font-bold text-center text-brand">업로드 완료!</p>

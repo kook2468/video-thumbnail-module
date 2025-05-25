@@ -3,7 +3,7 @@ import { Button } from "../../../../../shared/components/ui/Button";
 import { useModalStore } from "../../../../../stores/modal.store";
 import { useThumbnailStore } from "../../../../../stores/thumbnail.store";
 import { useToastStore } from "../../../../../stores/toast.store";
-import { ThumbnailGrid } from "../../../../thumbnail/components/ThumbnailGrid";
+import { ThumbnailGrid } from "../../../../thumbnail/components/ThumbnailGrid/Seek/ThumbnailSeekGrid";
 import { POST_THUMBNAIL_LIMIT } from "../../../../thumbnail/constants/limit";
 import {
   ERROR_MESSAGES,
