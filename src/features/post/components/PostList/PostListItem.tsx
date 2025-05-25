@@ -1,21 +1,21 @@
 import React from "react";
 import type { Post } from "../../types";
-import { usePostDetailStore } from "../../../../stores/postDetail.store";
-import { useModalStore } from "../../../../stores/modal.store";
+import { usePostDetailModal } from "../../../../shared/hooks/usePostDetailModal";
+import { usePostDetail } from "../../../../shared/hooks/usePostDetail";
 
 type Props = {
   post: Post;
+  displayIndex: number;
 };
 
-export const PostListItem = React.memo(({ post }: Props) => {
-  const setSelectedPost = usePostDetailStore((s) => s.setSelectedPost);
-  const openPostDetailModal = useModalStore((s) => s.openPostDetailModal);
+export const PostListItem = React.memo(({ post, displayIndex }: Props) => {
+  const { setPost } = usePostDetail();
+  const { open } = usePostDetailModal();
   const firstThumbnail = post.thumbnails?.[0];
 
   const handleClick = () => {
-    console.log("클릭!!");
-    setSelectedPost(post);
-    openPostDetailModal();
+    setPost(post);
+    open();
   };
 
   return (
@@ -33,7 +33,9 @@ export const PostListItem = React.memo(({ post }: Props) => {
         )}
       </div>
       <div className="flex-1">
-        <p className="text-md text-gray-800 font-bold">포스트 #{post.id}</p>
+        <p className="text-md text-gray-800 font-bold">
+          포스트 #{displayIndex}
+        </p>
         <p className="text-sm text-gray-800 line-clamp-3">{post.content}</p>
       </div>
     </div>

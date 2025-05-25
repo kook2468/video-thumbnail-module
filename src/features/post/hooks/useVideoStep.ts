@@ -1,9 +1,9 @@
-import { useModalStore } from "../../../stores/modal.store";
-import { usePostDraftStore } from "../../../stores/postDraft.store";
+import { usePostDraft } from "../../../shared/hooks/usePostDraft";
+import { usePostModal } from "../../../shared/hooks/usePostModal";
 
 export const useVideoStep = () => {
-  const setPostModalStep = useModalStore((s) => s.setPostModalStep);
-  const video = usePostDraftStore((s) => s.video);
+  const setStep = usePostModal().setStep;
+  const video = usePostDraft().video;
 
-  return { setPostModalStep, video };
+  return { setStep, video };
 };

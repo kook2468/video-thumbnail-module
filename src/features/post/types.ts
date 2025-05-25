@@ -1,9 +1,8 @@
-// ==========================
-// PostModal 내부 단계
-
 import type { Thumbnail } from "../thumbnail/types";
 import type { Video } from "../video/types";
 
+// ==========================
+// PostModal 내부 단계
 // ==========================
 export type PostModalStep = "form" | "video" | "thumbnail";
 

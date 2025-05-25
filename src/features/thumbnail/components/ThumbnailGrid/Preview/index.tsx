@@ -1,24 +1,15 @@
-import React, { useState } from "react";
 import { ThumbnailItem } from "../../ThumbnailItem/ThumbnailItem";
-import { PreviewModal } from "../../ThumbnailModal/ThumbnailPreviewModal";
+import { PreviewModal } from "../../ThumbnailPreviewModal";
 import type { Thumbnail } from "../../../types";
+import { useThumbnailPreview } from "../../../hooks/useThumbnailPreview";
 
 type Props = {
   thumbnails: Thumbnail[];
 };
 
-export function ThumbnailPreviewGrid({ thumbnails }: Props) {
-  const [previewTime, setPreviewTime] = useState<number | null>(null);
-
-  const openPreview = (time: number) => {
-    setPreviewTime(time);
-  };
-
-  const closePreview = () => {
-    setPreviewTime(null);
-  };
-
-  const currentThumbnail = thumbnails.find((t) => t.time === previewTime);
+export const ThumbnailPreviewGrid = ({ thumbnails }: Props) => {
+  const { previewTime, openPreview, closePreview, currentThumbnail } =
+    useThumbnailPreview(thumbnails);
 
   return (
     <div className="grid grid-cols-4 gap-2">
@@ -36,4 +27,4 @@ export function ThumbnailPreviewGrid({ thumbnails }: Props) {
       )}
     </div>
   );
-}
+};

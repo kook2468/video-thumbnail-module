@@ -1,18 +1,31 @@
-import { useModalStore } from "../../../stores/modal.store";
-import { useToastStore } from "../../../stores/toast.store";
-import { usePostsStore } from "../../../stores/posts.store";
 import type { Post } from "../types";
-import { usePostDraftStore } from "../../../stores/postDraft.store";
+import { usePostModal } from "../../../shared/hooks/usePostModal";
+import { useToast } from "../../../shared/hooks/useToast";
+import { ERROR_MESSAGES, SUCCESS_MESSAGE } from "../constants/message";
+import { usePostDraft } from "../../../shared/hooks/usePostDraft";
+import { usePosts } from "../../../shared/hooks/usePosts";
 
 export const usePostStep = () => {
-  const { setPostModalStep, closePostModal } = useModalStore();
-  const showToast = useToastStore((s) => s.showToast);
-  const { content, setContent, thumbnails, video, reset } = usePostDraftStore();
-  const addPost = usePostsStore((s) => s.addPost);
+  const { setStep, close } = usePostModal();
+  const showToast = useToast().showToast;
+  const {
+    isContentValid,
+    isContentTooLong,
+    setContent,
+    content,
+    thumbnails,
+    video,
+    reset,
+  } = usePostDraft();
+  const addPost = usePosts().addPost;
 
   const handleSubmit = () => {
-    if (content.trim().length < 10) {
-      showToast("포스트는 최소 10자 이상이어야 합니다.", "default");
+    /* 글자 수 체크 */
+    if (!isContentValid) {
+      showToast.warning(ERROR_MESSAGES.contentMin);
+      return;
+    } else if (isContentTooLong) {
+      showToast.warning(ERROR_MESSAGES.contentMax);
       return;
     }
 
@@ -23,11 +36,11 @@ export const usePostStep = () => {
       ...(thumbnails.length > 0 && { thumbnails }),
     };
 
-    console.log("포스트 제출:", newPost);
     addPost(newPost);
+    showToast.success(SUCCESS_MESSAGE.postInsert);
     reset();
-    closePostModal();
+    close();
   };
 
-  return { content, setContent, handleSubmit, setPostModalStep, thumbnails };
+  return { content, setContent, handleSubmit, setStep, thumbnails };
 };

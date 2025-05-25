@@ -7,12 +7,17 @@ type ToastProps = {
 
 const typeStyles = {
   default: "bg-gray-800 text-white",
-  success: "bg-green-500 text-white",
+  success: "bg-brand text-white",
   warning: "bg-yellow-400 text-black",
   danger: "bg-red-500 text-white",
 };
 
-export function Toast({ id, message, type = "default", onClose }: ToastProps) {
+export const Toast = ({
+  id,
+  message,
+  type = "default",
+  onClose,
+}: ToastProps) => {
   return (
     <div
       className={`rounded px-4 py-3 shadow-lg text-sm animate-slide-in transition-all ${typeStyles[type]} flex justify-between items-start gap-2`}
@@ -27,4 +32,4 @@ export function Toast({ id, message, type = "default", onClose }: ToastProps) {
       </button>
     </div>
   );
-}
+};

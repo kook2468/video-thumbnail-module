@@ -1,18 +1,18 @@
-import { BaseModal } from "../../../../shared/components/modal/BaseModal";
+import { Modal } from "../../../../shared/components/modal/Modal";
 import { PostModalHeader } from "./PostModalHeader";
 import { PostModalContent } from "./PostModalContent";
 
 export const PostModal = () => {
   //컴파운드 컴포넌트 패턴!
   return (
-    <BaseModal size="lg">
-      <BaseModal.Header>
+    <Modal size="lg">
+      <Modal.Header>
         <PostModalHeader />
-      </BaseModal.Header>
+      </Modal.Header>
 
-      <BaseModal.Content>
+      <Modal.Content>
         <PostModalContent />
-      </BaseModal.Content>
-    </BaseModal>
+      </Modal.Content>
+    </Modal>
   );
 };

@@ -3,7 +3,6 @@
 // ==========================
 export const ERROR_MESSAGES = {
   invalidVideo: "동영상 파일만 선택할 수 있습니다.",
-  notVideoFile: "영상 파일만 업로드할 수 있습니다.",
   fileTooLarge: "100MB 이하의 파일만 업로드할 수 있습니다.",
 };
 

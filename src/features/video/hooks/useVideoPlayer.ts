@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-export function useVideoPlayer() {
+export const useVideoPlayer = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const pause = () => {
@@ -32,4 +32,4 @@ export function useVideoPlayer() {
     pause,
     getCurrentFrame,
   };
-}
+};

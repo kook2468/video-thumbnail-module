@@ -1,41 +1,25 @@
-import { useRef, useState, type DragEvent } from "react";
 import { Button } from "../../../../shared/components/ui/Button";
 import { formatBytes } from "../../utils/formatBytes";
-import ICON_FILEUPLOAD from "@/assets/icon/file-upload-icon.svg";
 import clsx from "clsx";
 import { NOTICE_MESSAGES } from "../../constants/message";
 import { useVideoUpload } from "../../hooks/useVideoUpload";
-import { usePostDraftStore } from "../../../../stores/postDraft.store";
 
 export const VideoUploader = () => {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const video = usePostDraftStore((s) => s.video);
-  const { handleFileChange, handleFile } = useVideoUpload();
-
-  /* Drag, DragOver, DragLeave 이벤트 */
-  const handleDrop = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    setIsDragging(false);
-
-    const file = e.dataTransfer.files?.[0];
-    if (file) handleFile(file);
-  };
-
-  const handleDragOver = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    setIsDragging(true);
-  };
-
-  const handleDragLeave = () => {
-    setIsDragging(false);
-  };
+  const {
+    handleDragLeave,
+    handleDragOver,
+    handleDrop,
+    handleFileChange,
+    inputRef,
+    isDragging,
+    video,
+  } = useVideoUpload();
 
   return (
     <div
       className={clsx(
         "flex flex-col items-center justify-center h-64 border-2 border-dashed rounded-2xl transition-colors",
-        isDragging ? "border-blue-500 bg-blue-50" : "border-gray-300"
+        isDragging ? "border-brand bg-cyan-50" : "border-gray-300"
       )}
       onDrop={handleDrop}
       onDragOver={handleDragOver}
@@ -50,7 +34,7 @@ export const VideoUploader = () => {
       />
 
       <div className="bg-gray-100 p-4 rounded-full mb-4">
-        <img src={ICON_FILEUPLOAD} width={30} />
+        <img src="/icons/file-upload-icon.svg" width={30} />
       </div>
 
       <div>

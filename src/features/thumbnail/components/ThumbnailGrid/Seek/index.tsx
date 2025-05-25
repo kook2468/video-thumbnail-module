@@ -10,12 +10,12 @@ type Props = {
   onSeek: (time: number) => void;
 };
 
-export function ThumbnailGrid({
+export const ThumbnailGrid = ({
   thumbnails,
   onCapture,
   onRemove,
   onSeek,
-}: Props) {
+}: Props) => {
   const canAdd = thumbnails.length < POST_THUMBNAIL_LIMIT;
 
   return (
@@ -33,4 +33,4 @@ export function ThumbnailGrid({
       {canAdd && <CaptureButton onCapture={onCapture} />}
     </div>
   );
-}
+};
