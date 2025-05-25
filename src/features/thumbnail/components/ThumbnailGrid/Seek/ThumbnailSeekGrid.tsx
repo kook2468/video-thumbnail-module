@@ -20,14 +20,14 @@ export function ThumbnailGrid({
 
   return (
     <div className="grid grid-cols-4 gap-2 w-full max-w-full">
-      {thumbnails.map((thumb, i) => (
+      {thumbnails.map((thumb) => (
         <ThumbnailItem
           key={thumb.time}
           variant="seek"
           src={thumb.src}
           time={thumb.time}
           onSeek={onSeek}
-          onRemove={() => onRemove(i)}
+          onRemove={() => onRemove(thumb.time)}
         />
       ))}
       {canAdd && <CaptureButton onCapture={onCapture} />}

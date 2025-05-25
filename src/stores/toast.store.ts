@@ -1,3 +1,6 @@
+/**
+ * ToastStore : 토스트 상태 관리 스토어
+ */
 import { create } from "zustand";
 
 export type ToastType = "default" | "success" | "warning" | "danger";

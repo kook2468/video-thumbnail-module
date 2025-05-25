@@ -1,10 +1,9 @@
-import { useVideoStore } from "../../../stores/video.store";
 import { validateVideoFile } from "../utils/validateVideo";
 import { useToastStore } from "../../../stores/toast.store";
+import { usePostDraftStore } from "../../../stores/postDraft.store";
 
 export const useVideoUpload = () => {
-  const setVideo = useVideoStore((s) => s.setVideo);
-  const clearVideo = useVideoStore((s) => s.clearVideo);
+  const { setVideo, clearVideo } = usePostDraftStore();
   const showToast = useToastStore((s) => s.showToast);
 
   const handleFile = (file: File) => {

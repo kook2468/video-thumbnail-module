@@ -1,16 +1,16 @@
 import { useRef, useState, type DragEvent } from "react";
-import { useVideoStore } from "../../../../stores/video.store";
 import { Button } from "../../../../shared/components/ui/Button";
 import { formatBytes } from "../../utils/formatBytes";
-import ICON_FILEUPLOAD from "@/assets/icon/file-upload.svg";
+import ICON_FILEUPLOAD from "@/assets/icon/file-upload-icon.svg";
 import clsx from "clsx";
 import { NOTICE_MESSAGES } from "../../constants/message";
 import { useVideoUpload } from "../../hooks/useVideoUpload";
+import { usePostDraftStore } from "../../../../stores/postDraft.store";
 
 export const VideoUploader = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isDragging, setIsDragging] = useState(false);
-  const file = useVideoStore((s) => s.file);
+  const video = usePostDraftStore((s) => s.video);
   const { handleFileChange, handleFile } = useVideoUpload();
 
   /* Drag, DragOver, DragLeave 이벤트 */
@@ -54,12 +54,19 @@ export const VideoUploader = () => {
       </div>
 
       <div>
-        {file ? (
-          <div className="text-sm text-gray-700">
-            <p className="font-bold text-center text-brand">업로드 완료!</p>
-            <p className="mt-1 break-all">{file.name}</p>
-            <p className="text-xs text-gray-500">{formatBytes(file.size)}</p>
-          </div>
+        {video ? (
+          (() => {
+            const { file } = video;
+            return (
+              <div className="text-sm text-gray-700">
+                <p className="font-bold text-center text-brand">업로드 완료!</p>
+                <p className="mt-1 break-all">{file!.name}</p>
+                <p className="text-xs text-gray-500">
+                  {formatBytes(file!.size)}
+                </p>
+              </div>
+            );
+          })()
         ) : (
           <div className="text-center">
             <p className="text-sm">{NOTICE_MESSAGES.fileGuide}</p>
@@ -71,7 +78,7 @@ export const VideoUploader = () => {
       </div>
 
       <Button className="mt-4" onClick={() => inputRef.current?.click()}>
-        {file ? "다시 선택하기" : "파일 선택"}
+        {video ? "다시 선택하기" : "파일 선택"}
       </Button>
     </div>
   );

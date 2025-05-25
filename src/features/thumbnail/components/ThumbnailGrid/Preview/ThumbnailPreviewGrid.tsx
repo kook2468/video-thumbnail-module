@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { useThumbnailStore } from "../../../../../stores/thumbnail.store";
 import { ThumbnailItem } from "../../ThumbnailItem/ThumbnailItem";
 import { PreviewModal } from "../../ThumbnailModal/ThumbnailPreviewModal";
+import type { Thumbnail } from "../../../types";
 
-export const ThumbnailPreviewGrid = React.memo(() => {
-  const thumbnails = useThumbnailStore((s) => s.thumbnails);
+type Props = {
+  thumbnails: Thumbnail[];
+};
+
+export function ThumbnailPreviewGrid({ thumbnails }: Props) {
   const [previewTime, setPreviewTime] = useState<number | null>(null);
 
   const openPreview = (time: number) => {
@@ -33,4 +36,4 @@ export const ThumbnailPreviewGrid = React.memo(() => {
       )}
     </div>
   );
-});
+}

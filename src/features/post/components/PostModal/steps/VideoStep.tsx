@@ -1,14 +1,12 @@
 import React from "react";
 import { BaseModalContentLayout } from "../../../../../shared/components/layout/BaseModalContentLayout";
 import { Button } from "../../../../../shared/components/ui/Button";
-import { useModalStore } from "../../../../../stores/modal.store";
-import { useVideoStore } from "../../../../../stores/video.store";
 import { VideoUploader } from "../../../../video/components/VideoUploader";
 import { POST_MODAL_STEP } from "../../../constants/step";
+import { useVideoStep } from "../../../hooks/useVideoStep";
 
 export const VideoStep = React.memo(() => {
-  const setPostModalStep = useModalStore((s) => s.setPostModalStep);
-  const file = useVideoStore((s) => s.file);
+  const { setPostModalStep, video } = useVideoStep();
 
   return (
     <BaseModalContentLayout>
@@ -26,7 +24,7 @@ export const VideoStep = React.memo(() => {
           <Button
             variant="primary"
             onClick={() => setPostModalStep(POST_MODAL_STEP.THUMBNAIL)}
-            disabled={!file}
+            disabled={!video}
           >
             다음
           </Button>

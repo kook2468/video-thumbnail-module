@@ -15,21 +15,7 @@ const sizeMap: Record<ModalSize, string> = {
   lg: "max-w-2xl",
 };
 
-export const BaseModal = ({ children, onClose, size = "md" }: Props) => {
-  console.log("BaseModal props:", { children, onClose, size });
-  // const renderFooter = () => {
-  //   if (footer) return footer;
-
-  //   return (
-  //     <div className="flex justify-end gap-2">
-  //       <Button variant="secondary" onClick={onClose}>
-  //         취소
-  //       </Button>
-  //       <Button onClick={onConfirm}>확인</Button>
-  //     </div>
-  //   );
-  // };
-
+export const BaseModal = ({ children, size = "md" }: Props) => {
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
       <div
@@ -39,13 +25,6 @@ export const BaseModal = ({ children, onClose, size = "md" }: Props) => {
         )}
       >
         {children}
-        {/* 본문 */}
-        {/* <div className="mb-4 p-4">{children}</div> */}
-
-        {/* 푸터 */}
-        {/* <div className="mt-6 p-4 border-t border-gray-200">
-          {renderFooter()}
-        </div> */}
       </div>
     </div>
   );
