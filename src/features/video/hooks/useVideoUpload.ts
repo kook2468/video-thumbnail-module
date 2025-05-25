@@ -1,21 +1,28 @@
 import { useVideoStore } from "../../../stores/video.store";
 import { validateVideoFile } from "../utils/validateVideo";
+import { useToastStore } from "../../../stores/toast.store";
 
 export const useVideoUpload = () => {
   const setVideo = useVideoStore((s) => s.setVideo);
+  const clearVideo = useVideoStore((s) => s.clearVideo);
+  const showToast = useToastStore((s) => s.showToast);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
+  const handleFile = (file: File) => {
     const error = validateVideoFile(file);
     if (error) {
-      alert(error); // 실제 구현에선 상태나 toast로 처리 가능
+      showToast(error, "danger");
+      clearVideo();
       return;
     }
 
     setVideo(file);
   };
 
-  return { handleFileChange };
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    handleFile(file);
+  };
+
+  return { handleFile, handleFileChange };
 };

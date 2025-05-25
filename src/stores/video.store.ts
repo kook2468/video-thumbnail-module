@@ -1,13 +1,13 @@
 import { create } from "zustand";
 
-type VideoState = {
+type VideoStore = {
   file: File | null;
   url: string | null;
   setVideo: (file: File) => void;
   clearVideo: () => void;
 };
 
-export const useVideoStore = create<VideoState>((set) => ({
+export const useVideoStore = create<VideoStore>((set) => ({
   file: null,
   url: null,
   setVideo: (file) =>

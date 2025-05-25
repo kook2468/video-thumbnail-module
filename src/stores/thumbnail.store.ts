@@ -1,24 +1,20 @@
 import { create } from "zustand";
+import type { Thumbnail } from "../features/thumbnail/types";
 
-export type Thumbnail = {
-  src: string;
-  time: number;
-};
-
-interface ThumbnailState {
+interface ThumbnailStore {
   thumbnails: Thumbnail[];
   addThumbnail: (thumb: Thumbnail) => void;
-  removeThumbnail: (index: number) => void;
+  removeThumbnail: (time: number) => void;
   resetThumbnails: () => void;
 }
 
-export const useThumbnailStore = create<ThumbnailState>((set) => ({
+export const useThumbnailStore = create<ThumbnailStore>((set) => ({
   thumbnails: [],
   addThumbnail: (thumb) =>
     set((state) => ({ thumbnails: [...state.thumbnails, thumb] })),
-  removeThumbnail: (index) =>
+  removeThumbnail: (time) =>
     set((state) => ({
-      thumbnails: state.thumbnails.filter((_, i) => i !== index),
+      thumbnails: state.thumbnails.filter((thumb) => thumb.time !== time),
     })),
   resetThumbnails: () => set({ thumbnails: [] }),
 }));

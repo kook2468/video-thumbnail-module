@@ -55,6 +55,4 @@ BaseModal.Header = ({ children }: { children: ReactNode }) => (
   <div className="border-b p-4">{children}</div>
 );
 
-BaseModal.Content = ({ children }: { children: ReactNode }) => (
-  <div className="p-4">{children}</div>
-);
+BaseModal.Content = ({ children }: { children: ReactNode }) => <>{children}</>;

@@ -1,7 +1,7 @@
-import { POST_THUMBNAIL_LIMIT } from "../../constants/limit";
-import type { Thumbnail } from "../../types";
-import { CaptureButton } from "./CaptureButton";
-import { ThumbnailItem } from "./ThumbnailItem";
+import { POST_THUMBNAIL_LIMIT } from "../../../constants/limit";
+import type { Thumbnail } from "../../../types";
+import { CaptureButton } from "../../ThumbnailItem/CaptureButton";
+import { ThumbnailItem } from "../../ThumbnailItem/ThumbnailItem";
 
 type Props = {
   thumbnails: Thumbnail[];
@@ -23,6 +23,7 @@ export function ThumbnailGrid({
       {thumbnails.map((thumb, i) => (
         <ThumbnailItem
           key={thumb.time}
+          variant="seek"
           src={thumb.src}
           time={thumb.time}
           onSeek={onSeek}

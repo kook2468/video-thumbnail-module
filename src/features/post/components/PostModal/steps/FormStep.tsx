@@ -3,10 +3,9 @@ import { Button } from "../../../../../shared/components/ui/Button";
 import { useModalStore } from "../../../../../stores/modal.store";
 import { BaseModalContentLayout } from "../../../../../shared/components/layout/BaseModalContentLayout";
 import { POST_MODAL_STEP } from "../../../constants/step";
+import { ThumbnailPreviewGrid } from "../../../../thumbnail/components/ThumbnailGrid/Preview/ThumbnailPreviewGrid";
 
 export const FormStep = React.memo(() => {
-  console.log("🔥 FormStep 렌더링");
-
   const setPostModalStep = useModalStore((s) => s.setPostModalStep);
   const closePostModal = useModalStore((s) => s.closePostModal);
   const [content, setContent] = useState("");
@@ -20,13 +19,17 @@ export const FormStep = React.memo(() => {
   return (
     <BaseModalContentLayout>
       <BaseModalContentLayout.Body>
-        <textarea
-          className="w-full border p-4 rounded-2xl"
-          rows={5}
-          placeholder="내용을 입력하세요"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
+        <div className="flex flex-col gap-4">
+          <textarea
+            className="w-full border p-4 rounded-2xl"
+            rows={5}
+            placeholder="내용을 입력하세요"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
+          {/* 썸네일 Preview 그리드 */}
+          <ThumbnailPreviewGrid />
+        </div>
       </BaseModalContentLayout.Body>
       <BaseModalContentLayout.Footer>
         <div className="flex justify-between">
