@@ -4,7 +4,7 @@
 React + Vite + TypeScript 기반으로 개발되었으며,  
 **동영상 첨부 → 썸네일 추출 및 선택 → 게시글 반영**까지의 흐름을 제공합니다.
 
-![캡쳐본](image.png)
+![캡쳐본](public/readme_banner.png)
 
 ## 1. 기술 스택
 
