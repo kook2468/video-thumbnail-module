@@ -1,51 +1,69 @@
-// import { render, screen, fireEvent } from "@testing-library/react";
-// import { describe, it, expect, vi, beforeEach } from "vitest";
-// import { FormStep } from "./FormStep";
-// import { usePostDraftStore } from "../../../../../stores/postDraft.store";
-// import { POST_CONTENT_MIN_LENGTH } from "../../../constants/limit";
+import { render, screen, fireEvent } from "@testing-library/react";
+import { describe, it, expect, vi, beforeEach } from "vitest";
+import { FormStep } from "./FormStep";
+import { POST_MODAL_STEP } from "@/features/post/constants/step";
 
-// // 모달 스텝 상태 변경 함수 mocking
-// vi.mock("@/shared/hooks/usePostModal", () => ({
-//   usePostModal: () => ({
-//     setStep: vi.fn(),
-//   }),
-// }));
+/* usePostStep 모킹 */
+const mockSetContent = vi.fn();
+const mockHandleSubmit = vi.fn();
+const mockSetStep = vi.fn();
+const mockThumbnails = [{ time: 1.2, src: "thumb1.png" }];
+let mockContent = "";
 
-// describe("FormStep", () => {
-//   beforeEach(() => {
-//     // 상태 초기화
-//     usePostDraftStore.getState().reset();
-//   });
+vi.mock("../../../hooks/usePostStep", () => ({
+  usePostStep: () => ({
+    content: mockContent,
+    setContent: mockSetContent,
+    handleSubmit: mockHandleSubmit,
+    setStep: mockSetStep,
+    thumbnails: mockThumbnails,
+  }),
+}));
 
-//   it("10자 미만 입력 시 토스트 메시지가 뜬다", () => {
-//     render(<FormStep />);
+describe("FormStep", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    mockContent = "";
+  });
 
-//     const input = screen.getByRole("textbox");
-//     fireEvent.change(input, { target: { value: "짧음" } });
+  it("텍스트 입력 시 setContent 호출", () => {
+    render(<FormStep />);
+    const textarea = screen.getByPlaceholderText("내용을 입력하세요");
+    fireEvent.change(textarea, { target: { value: "새로운 글" } });
+    expect(mockSetContent).toHaveBeenCalledWith("새로운 글");
+  });
 
-//     const button = screen.getByText("다음");
-//     fireEvent.click(button);
+  it("content가 없으면 등록 버튼 비활성화", () => {
+    render(<FormStep />);
+    const submitButton = screen.getByRole("button", { name: "등록" });
+    expect(submitButton).toBeDisabled();
+  });
 
-//     expect(screen.getByText("내용은 최소 10자 이상 입력해주세요")).toBeInTheDocument();
-//   });
+  it("content가 있으면 등록 버튼 활성화", () => {
+    mockContent = "내용 있음";
+    render(<FormStep />);
+    const submitButton = screen.getByRole("button", { name: "등록" });
+    expect(submitButton).toBeEnabled();
+  });
 
-//   it("유효한 글 입력 시 다음 스텝으로 전환된다", () => {
-//     const mockSetStep = vi.fn();
+  it("등록 버튼 클릭 시 handleSubmit 호출", () => {
+    mockContent = "제출 테스트";
+    render(<FormStep />);
+    const submitButton = screen.getByRole("button", { name: "등록" });
+    fireEvent.click(submitButton);
+    expect(mockHandleSubmit).toHaveBeenCalled();
+  });
 
-//     // 모킹 다시 override
-//     vi.mocked(require("@/shared/hooks/usePostModal").usePostModal).mockReturnValue({
-//       setStep: mockSetStep,
-//     });
+  it("비디오 버튼 클릭 시 setStep 호출", () => {
+    render(<FormStep />);
+    const videoButton = screen.getByRole("button", { name: /video icon/i });
+    fireEvent.click(videoButton);
+    expect(mockSetStep).toHaveBeenCalledWith(POST_MODAL_STEP.VIDEO);
+  });
 
-//     render(<FormStep />);
-
-//     const input = screen.getByRole("textbox");
-//     const validContent = "a".repeat(POST_CONTENT_MIN_LENGTH);
-//     fireEvent.change(input, { target: { value: validContent } });
-
-//     const button = screen.getByText("다음");
-//     fireEvent.click(button);
-
-//     expect(mockSetStep).toHaveBeenCalled(); // 다음 step 전환
-//   });
-// });
+  it("썸네일 프리뷰가 렌더링됨", () => {
+    render(<FormStep />);
+    expect(screen.getByAltText("image icon")).toBeInTheDocument();
+    expect(screen.getByAltText("video icon")).toBeInTheDocument();
+  });
+});

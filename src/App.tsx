@@ -1,4 +1,4 @@
-import { PostModule } from "./features/post/components/PostModule";
+import { PostModule } from "./features/post/components/PostModule/PostModule";
 import { Header } from "./shared/components/layout/Header";
 import { ToastContainer } from "./shared/components/toast/ToastContainer";
 

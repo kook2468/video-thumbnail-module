@@ -20,6 +20,7 @@ export const PostListItem = React.memo(({ post, displayIndex }: Props) => {
 
   return (
     <div
+      data-testid="post-item"
       className="flex items-start border rounded-xl p-4 shadow-sm bg-white gap-x-4 cursor-pointer"
       onClick={handleClick}
     >

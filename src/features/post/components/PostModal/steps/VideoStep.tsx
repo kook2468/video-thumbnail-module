@@ -1,15 +1,15 @@
 import React from "react";
-import { ModalContent } from "../../../../../shared/components/modal/ModalContent";
-import { Button } from "../../../../../shared/components/ui/Button";
-import { VideoUploader } from "../../../../video/components/VideoUploader";
+import { ModalContent } from "@/shared/components/modal/ModalContent";
+import { Button } from "@/shared/components/ui/Button";
 import { POST_MODAL_STEP } from "../../../constants/step";
 import { useVideoStep } from "../../../hooks/useVideoStep";
+import { VideoUploader } from "@/features/video/components/VideoUploader";
 
 export const VideoStep = React.memo(() => {
   const { setStep, video } = useVideoStep();
 
   return (
-    <ModalContent>
+    <ModalContent data-testid="form-step">
       <ModalContent.Body>
         <VideoUploader />
       </ModalContent.Body>

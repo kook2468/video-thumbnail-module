@@ -1,11 +1,11 @@
 import React from "react";
-import { ModalContent } from "../../../../../shared/components/modal/ModalContent";
-import { Button } from "../../../../../shared/components/ui/Button";
-import { ThumbnailGrid } from "../../../../thumbnail/components/ThumbnailGrid/Seek";
-import { NOTICE_MESSAGES } from "../../../../thumbnail/constants/message";
-import { VideoPlayer } from "../../../../video/components/VideoPlayer";
+import { ModalContent } from "@/shared/components/modal/ModalContent";
+import { Button } from "@/shared/components/ui/Button";
+import { ThumbnailSeekGrid } from "@/features/thumbnail/components/ThumbnailGrid/ThumbnailSeekGrid";
+import { NOTICE_MESSAGES } from "@/features/thumbnail/constants/message";
 import { POST_MODAL_STEP } from "../../../constants/step";
 import { useThumbnailStep } from "../../../hooks/useThumbnailStep";
+import { VideoPlayer } from "@/features/video/components/VideoPlayer";
 
 export const ThumbnailStep = React.memo(() => {
   const {
@@ -18,7 +18,7 @@ export const ThumbnailStep = React.memo(() => {
   } = useThumbnailStep();
 
   return (
-    <ModalContent>
+    <ModalContent data-testid="form-step">
       <ModalContent.Body>
         <div className="flex flex-col gap-4">
           <div>
@@ -28,7 +28,7 @@ export const ThumbnailStep = React.memo(() => {
           <div className="mt-4">
             <h1>썸네일 캡쳐</h1>
             <p className="text-gray-600 mb-4">{NOTICE_MESSAGES.addThumbnail}</p>
-            <ThumbnailGrid
+            <ThumbnailSeekGrid
               thumbnails={thumbnails}
               onCapture={handleCapture}
               onRemove={removeThumbnail}

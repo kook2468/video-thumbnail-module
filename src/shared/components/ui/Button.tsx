@@ -27,6 +27,7 @@ export const Button = ({
 }: ButtonProps) => (
   <button
     onClick={onClick}
+    disabled={disabled}
     className={clsx(
       base,
       variantMap[variant],

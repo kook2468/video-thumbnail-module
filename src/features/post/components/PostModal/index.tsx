@@ -5,7 +5,7 @@ import { PostModalContent } from "./PostModalContent";
 export const PostModal = () => {
   //컴파운드 컴포넌트 패턴!
   return (
-    <Modal size="lg">
+    <Modal data-testid="post-modal" size="lg">
       <Modal.Header>
         <PostModalHeader />
       </Modal.Header>

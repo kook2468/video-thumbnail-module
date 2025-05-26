@@ -2,15 +2,15 @@ import React from "react";
 import { Button } from "@/shared/components/ui/Button";
 import { ModalContent } from "@/shared/components/modal/ModalContent";
 import { POST_MODAL_STEP } from "../../../constants/step";
-import { ThumbnailPreviewGrid } from "@/features/thumbnail/components/ThumbnailGrid/Preview";
 import { usePostStep } from "../../../hooks/usePostStep";
+import { ThumbnailPreviewGrid } from "@/features/thumbnail/components/ThumbnailGrid";
 
 export const FormStep = React.memo(() => {
   const { content, setContent, handleSubmit, setStep, thumbnails } =
     usePostStep();
 
   return (
-    <ModalContent>
+    <ModalContent data-testid="form-step">
       <ModalContent.Body>
         <div className="flex flex-col gap-4">
           <textarea

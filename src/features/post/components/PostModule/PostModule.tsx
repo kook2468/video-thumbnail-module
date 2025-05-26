@@ -1,6 +1,6 @@
-import { PostDetailModal } from "./PostDetailModal";
-import { PostList } from "./PostList";
-import { OpenPostModalButton } from "./PostModal/OpenPostModalButton";
+import { PostDetailModal } from "../PostDetailModal/PostDetailModal";
+import { PostList } from "../PostList/PostList";
+import { OpenPostModalButton } from "./OpenPostModalButton";
 
 export const PostModule = () => {
   return (

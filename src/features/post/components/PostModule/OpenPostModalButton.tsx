@@ -1,7 +1,7 @@
-import { PostModal } from ".";
 import { Button } from "@/shared/components/ui/Button";
 import { usePostDraft } from "@/shared/hooks/usePostDraft";
 import { usePostModal } from "@/shared/hooks/usePostModal";
+import { PostModal } from "../PostModal";
 
 export const OpenPostModalButton = () => {
   const { isOpen, open } = usePostModal();

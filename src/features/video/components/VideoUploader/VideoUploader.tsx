@@ -17,6 +17,7 @@ export const VideoUploader = () => {
 
   return (
     <div
+      data-testid="video-uploader"
       className={clsx(
         "flex flex-col items-center justify-center h-64 border-2 border-dashed rounded-2xl transition-colors",
         isDragging ? "border-brand bg-cyan-50" : "border-gray-300"
@@ -26,6 +27,7 @@ export const VideoUploader = () => {
       onDragLeave={handleDragLeave}
     >
       <input
+        data-testid="video-input"
         type="file"
         accept="video/*"
         ref={inputRef}

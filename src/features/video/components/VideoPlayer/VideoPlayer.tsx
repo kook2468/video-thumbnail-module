@@ -1,17 +1,17 @@
 import { forwardRef, type JSX } from "react";
 import { usePostDraft } from "@/shared/hooks/usePostDraft";
 
-//JSX.IntrinsicElements["video"]를 쓰면 video 태그의 props 자동 완성도 잘 됨
 export const VideoPlayer = forwardRef<
   HTMLVideoElement,
-  JSX.IntrinsicElements["video"]
+  JSX.IntrinsicElements["video"] // 이거 쓰면 video 태그의 props 자동 완성 잘 됨.
 >((props, ref) => {
   const video = usePostDraft().video;
 
   return (
-    <div>
+    <div data-testid="video-player">
       {video && (
         <video
+          data-testid="video-tag"
           ref={ref}
           controls
           width="100%"

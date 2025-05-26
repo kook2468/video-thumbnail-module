@@ -1,7 +1,7 @@
-import { POST_THUMBNAIL_LIMIT } from "../../../constants/limit";
-import type { Thumbnail } from "../../../types";
-import { CaptureButton } from "../../ThumbnailItem/CaptureButton";
-import { ThumbnailItem } from "../../ThumbnailItem/ThumbnailItem";
+import { POST_THUMBNAIL_LIMIT } from "../../constants/limit";
+import type { Thumbnail } from "../../types";
+import { CaptureButton } from "../ThumbnailItem/CaptureButton";
+import { ThumbnailItem } from "../ThumbnailItem/ThumbnailItem";
 
 type Props = {
   thumbnails: Thumbnail[];
@@ -10,7 +10,7 @@ type Props = {
   onSeek: (time: number) => void;
 };
 
-export const ThumbnailGrid = ({
+export const ThumbnailSeekGrid = ({
   thumbnails,
   onCapture,
   onRemove,
@@ -19,7 +19,10 @@ export const ThumbnailGrid = ({
   const canAdd = thumbnails.length < POST_THUMBNAIL_LIMIT;
 
   return (
-    <div className="grid grid-cols-4 gap-2 w-full max-w-full">
+    <div
+      data-testid="thumbnail-seek-grid"
+      className="grid grid-cols-4 gap-2 w-full max-w-full"
+    >
       {thumbnails.map((thumb) => (
         <ThumbnailItem
           key={thumb.time}

@@ -6,7 +6,7 @@ type Props = {
   onClose: () => void;
 };
 
-export const PreviewModal = ({ thumb, onClose }: Props) => {
+export const ThumbnailPreviewModal = ({ thumb, onClose }: Props) => {
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-preview">
       <div className="bg-white rounded-xl p-4 w-[90%] max-w-lg">
