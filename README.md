@@ -40,29 +40,32 @@ React + Vite + TypeScript 기반으로 개발되었으며,
 ```text
 src/
 ├── features/                  # 도메인 기반 폴더
-│   ├── post/                  # 포스트 작성 흐름
-│   │   ├── components/        # PostModal, 버튼 등
+│   ├── post/                  # 포스트 도메인
+│   │   ├── components/        # PostModal, PostList 등 컴포넌트
+│   │   ├── constants/         # 포스트 관련 상수
 │   │   ├── hooks/             # usePostModal 등 상태 및 제어 관련 훅
-│   │   └── index.ts
-│   ├── thumbnail/             # 썸네일 추출 기능
+│   │   └── types.ts
+│   ├── video    /             # 비디오 도메인
+│   │   ├── components/        # VideoPlayer, VideoUploader 컴포넌트
+│   │   ├── constants/         # 비디오 관련 상수
+│   │   ├── hooks/             # useVideoPlayer, useVideoUpload 훅
+│   │   ├── utils/             # validateVideo, formatBytes 유틸 함수
+│   │   └── types.ts           # 비디오 관련 타입
+│   ├── thumbnail/             # 썸네일 도메인
 │   │   ├── components/        # 썸네일 모달, 썸네일 리스트/아이템
-│   │   ├── hooks/             # useVideoPlayer, useThumbnail 등
-│   │   ├── utils/             # captureThumbnail, formatTime 등
-│   │   ├── types/             # 썸네일 데이터 타입 정의
-│   │   └── index.ts
-├── shared/                    # 공통 UI 및 유틸
-│   ├── components/            # 공용 UI 컴포넌트
-│   │   ├── ui/                # Button, Input 등 원자 단위 UI
-│   │   ├── layout/            # Wrapper, Container 등 배치 컴포넌트
-│   │   ├── modal/             # Modal, ModalContent 등 모달 구조 전용
-│   │   ├── feedback/          # Alert, Toast 등 사용자 피드백
-│   │   └── index.ts
+│   │   ├── constants/         # 썸네일 관련 상수
+│   │   ├── hooks/             # useVideoPlayer, useThumbnail 훅
+│   │   ├── utils/             # captureThumbnail, formatTime 유틸 함수
+│   │   └── types.ts           # 썸네일 관련 타입
+├── shared/                    # 프로젝트 공통 작성
+│   ├── components/            # 공통 UI 컴포넌트
+│   │   ├── ui/
+│   │   ├── layout/
+│   │   ├── modal/
+│   │   ├── toast/
 │   ├── hooks/                 # 범용 커스텀 훅
-│   ├── constants/             # 제한 개수, 에러 메세지 등 상수
-│   └── styles/                # 글로벌 스타일 및 Tailwind 확장
-├── stores/                    # Zustand 상태 관리 (썸네일, 포스트 등)
-├── pages/                     # 진입 포인트 (index.tsx 등)
-├── assets/                    # 폰트, 아이콘 등 정적 자원
+├── stores/                    # Zustand 상태 관리 (포스트, 모달, 토스트)
+├── assets/                    # 폰트 등 정적 자원
 └── main.tsx                   # 앱 엔트리 파일
 ```
 
