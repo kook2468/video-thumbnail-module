@@ -1,4 +1,4 @@
-import { usePostDetailStore } from "../../stores/postDetail.store";
+import { usePostDetailStore } from "@/stores/postDetail.store";
 import { usePosts } from "./usePosts";
 
 export function usePostDetail() {

@@ -1,4 +1,4 @@
-import { Modal } from "../../../../shared/components/modal/Modal";
+import { Modal } from "@/shared/components/modal/Modal";
 import { PostModalHeader } from "./PostModalHeader";
 import { PostModalContent } from "./PostModalContent";
 

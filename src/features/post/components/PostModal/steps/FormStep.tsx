@@ -1,8 +1,8 @@
 import React from "react";
-import { Button } from "../../../../../shared/components/ui/Button";
-import { ModalContent } from "../../../../../shared/components/modal/ModalContent";
+import { Button } from "@/shared/components/ui/Button";
+import { ModalContent } from "@/shared/components/modal/ModalContent";
 import { POST_MODAL_STEP } from "../../../constants/step";
-import { ThumbnailPreviewGrid } from "../../../../thumbnail/components/ThumbnailGrid/Preview";
+import { ThumbnailPreviewGrid } from "@/features/thumbnail/components/ThumbnailGrid/Preview";
 import { usePostStep } from "../../../hooks/usePostStep";
 
 export const FormStep = React.memo(() => {

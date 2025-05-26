@@ -1,6 +1,6 @@
-import { Modal } from "../../../../shared/components/modal/Modal";
-import { usePostDetail } from "../../../../shared/hooks/usePostDetail";
-import { usePostDetailModal } from "../../../../shared/hooks/usePostDetailModal";
+import { Modal } from "@/shared/components/modal";
+import { usePostDetail } from "@/shared/hooks/usePostDetail";
+import { usePostDetailModal } from "@/shared/hooks/usePostDetailModal";
 
 export const PostDetailModal = () => {
   const { isOpen, close } = usePostDetailModal();

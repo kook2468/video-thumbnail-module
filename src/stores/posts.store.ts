@@ -8,7 +8,6 @@ import type { Post } from "../features/post/types";
 interface PostsStore {
   posts: Post[];
   addPost: (post: Post) => void;
-  deletePost: (id: string) => void;
 }
 
 export const usePostsStore = create<PostsStore>()(
@@ -18,10 +17,6 @@ export const usePostsStore = create<PostsStore>()(
       addPost: (post) =>
         set((state) => ({
           posts: [...state.posts, post],
-        })),
-      deletePost: (id) =>
-        set((state) => ({
-          posts: state.posts.filter((post) => post.id !== id),
         })),
     }),
     {

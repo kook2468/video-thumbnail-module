@@ -1,9 +1,9 @@
 import type { Post } from "../types";
-import { usePostModal } from "../../../shared/hooks/usePostModal";
-import { useToast } from "../../../shared/hooks/useToast";
+import { usePostModal } from "@/shared/hooks/usePostModal";
+import { useToast } from "@/shared/hooks/useToast";
 import { ERROR_MESSAGES, SUCCESS_MESSAGE } from "../constants/message";
-import { usePostDraft } from "../../../shared/hooks/usePostDraft";
-import { usePosts } from "../../../shared/hooks/usePosts";
+import { usePostDraft } from "@/shared/hooks/usePostDraft";
+import { usePosts } from "@/shared/hooks/usePosts";
 
 export const usePostStep = () => {
   const { setStep, close } = usePostModal();

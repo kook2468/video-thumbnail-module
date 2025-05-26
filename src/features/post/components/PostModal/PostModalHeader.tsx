@@ -1,6 +1,6 @@
 import React from "react";
 import { POST_MODAL_TITLE_MAP } from "../../constants/step";
-import { usePostModal } from "../../../../shared/hooks/usePostModal";
+import { usePostModal } from "@/shared/hooks/usePostModal";
 
 export const PostModalHeader = React.memo(() => {
   const { step, close } = usePostModal();

@@ -1,5 +1,5 @@
-import { usePostDraft } from "../../../shared/hooks/usePostDraft";
-import { usePostModal } from "../../../shared/hooks/usePostModal";
+import { usePostDraft } from "@/shared/hooks/usePostDraft";
+import { usePostModal } from "@/shared/hooks/usePostModal";
 
 export const useVideoStep = () => {
   const setStep = usePostModal().setStep;

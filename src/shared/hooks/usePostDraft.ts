@@ -1,8 +1,8 @@
 import {
   POST_CONTENT_MAX_LENGTH,
   POST_CONTENT_MIN_LENGTH,
-} from "../../features/post/constants/limit";
-import { usePostDraftStore } from "../../stores/postDraft.store";
+} from "@/features/post/constants/limit";
+import { usePostDraftStore } from "@/stores/postDraft.store";
 
 export function usePostDraft() {
   const content = usePostDraftStore((s) => s.content);

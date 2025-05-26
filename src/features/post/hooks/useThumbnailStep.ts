@@ -1,6 +1,6 @@
-import { usePostDraft } from "../../../shared/hooks/usePostDraft";
-import { usePostModal } from "../../../shared/hooks/usePostModal";
-import { useToast } from "../../../shared/hooks/useToast";
+import { usePostDraft } from "@/shared/hooks/usePostDraft";
+import { usePostModal } from "@/shared/hooks/usePostModal";
+import { useToast } from "@/shared/hooks/useToast";
 import { POST_THUMBNAIL_LIMIT } from "../../thumbnail/constants/limit";
 import { ERROR_MESSAGES } from "../../thumbnail/constants/message";
 import { useVideoPlayer } from "../../video/hooks/useVideoPlayer";

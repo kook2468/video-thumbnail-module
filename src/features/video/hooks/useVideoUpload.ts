@@ -1,7 +1,7 @@
 import { validateVideoFile } from "../utils/validateVideo";
-import { useToast } from "../../../shared/hooks/useToast";
+import { useToast } from "@/shared/hooks/useToast";
 import { useRef, useState, type DragEvent } from "react";
-import { usePostDraft } from "../../../shared/hooks/usePostDraft";
+import { usePostDraft } from "@/shared/hooks/usePostDraft";
 
 export const useVideoUpload = () => {
   const [isDragging, setIsDragging] = useState(false);

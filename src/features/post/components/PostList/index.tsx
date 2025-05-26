@@ -1,7 +1,7 @@
 import React from "react";
 import { PostListItem } from "./PostListItem";
 import { NOTICE_MESSAGES } from "../../constants/message";
-import { usePosts } from "../../../../shared/hooks/usePosts";
+import { usePosts } from "@/shared/hooks/usePosts";
 
 export const PostList = React.memo(() => {
   const posts = usePosts().posts;

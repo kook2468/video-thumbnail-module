@@ -3,7 +3,7 @@ import { ThumbnailStep } from "./Steps/ThumbnailStep";
 import { FormStep } from "./Steps/FormStep";
 import { POST_MODAL_STEP } from "../../constants/step";
 import React from "react";
-import { usePostModal } from "../../../../shared/hooks/usePostModal";
+import { usePostModal } from "@/shared/hooks/usePostModal";
 
 export const PostModalContent = React.memo(() => {
   const step = usePostModal().step;

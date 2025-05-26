@@ -12,6 +12,11 @@ export default {
           hover: "#00b6c0",
         },
       },
+      zIndex: {
+        modal: 1000,
+        preview: 1100,
+        toast: 9999,
+      },
     },
   },
   plugins: [require("@tailwindcss/line-clamp")],

@@ -1,4 +1,4 @@
-import { useModalStore } from "../../stores/modal.store";
+import { useModalStore } from "@/stores/modal.store";
 
 export function usePostModal() {
   return {

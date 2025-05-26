@@ -54,7 +54,7 @@ src/
 │   ├── components/            # 공용 UI 컴포넌트
 │   │   ├── ui/                # Button, Input 등 원자 단위 UI
 │   │   ├── layout/            # Wrapper, Container 등 배치 컴포넌트
-│   │   ├── modal/             # BaseModal, ModalHeader 등 모달 구조 전용
+│   │   ├── modal/             # Modal, ModalContent 등 모달 구조 전용
 │   │   ├── feedback/          # Alert, Toast 등 사용자 피드백
 │   │   └── index.ts
 │   ├── hooks/                 # 범용 커스텀 훅

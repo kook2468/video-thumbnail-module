@@ -1,4 +1,4 @@
-import { Button } from "../../../../shared/components/ui/Button";
+import { Button } from "@/shared/components/ui/Button";
 import { formatBytes } from "../../utils/formatBytes";
 import clsx from "clsx";
 import { NOTICE_MESSAGES } from "../../constants/message";

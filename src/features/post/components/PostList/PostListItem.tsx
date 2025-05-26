@@ -1,7 +1,7 @@
 import React from "react";
 import type { Post } from "../../types";
-import { usePostDetailModal } from "../../../../shared/hooks/usePostDetailModal";
-import { usePostDetail } from "../../../../shared/hooks/usePostDetail";
+import { usePostDetailModal } from "@/shared/hooks/usePostDetailModal";
+import { usePostDetail } from "@/shared/hooks/usePostDetail";
 
 type Props = {
   post: Post;
