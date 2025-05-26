@@ -1,3 +1,6 @@
+/**
+ * ToastStore : 토스트 상태 관리 스토어
+ */
 import { create } from "zustand";
 
 export type ToastType = "default" | "success" | "warning" | "danger";
@@ -24,12 +27,11 @@ export const useToastStore = create<ToastStore>((set) => ({
         toasts: next.slice(-5), // 최대 5개 유지
       };
     });
-    // 3초 후 제거
     setTimeout(() => {
       set((state) => ({
         toasts: state.toasts.filter((t) => t.id !== id),
       }));
-    }, 3000);
+    }, 5000); // 5초 후 제거
   },
   removeToast: (id) =>
     set((state) => ({

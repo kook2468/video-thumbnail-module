@@ -1,8 +1,7 @@
-// ==========================
-// 에러 메시지
-
 import { POST_THUMBNAIL_LIMIT } from "./limit";
 
+// ==========================
+// 에러 메시지
 // ==========================
 export const ERROR_MESSAGES = {
   thumbnailLimit: `최대 ${POST_THUMBNAIL_LIMIT}개의 썸네일만 선택할 수 있습니다.`,

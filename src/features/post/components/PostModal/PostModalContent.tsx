@@ -1,14 +1,14 @@
-import { VideoStep } from "./steps/VideoStep";
-import { ThumbnailStep } from "./steps/ThumbnailStep";
-import { FormStep } from "./steps/FormStep";
+import { VideoStep } from "./Steps/VideoStep";
+import { ThumbnailStep } from "./Steps/ThumbnailStep";
+import { FormStep } from "./Steps/FormStep";
 import { POST_MODAL_STEP } from "../../constants/step";
 import React from "react";
-import { useModalStore } from "../../../../stores/modal.store";
+import { usePostModal } from "@/shared/hooks/usePostModal";
 
 export const PostModalContent = React.memo(() => {
-  const postModalStep = useModalStore((s) => s.postModalStep);
+  const step = usePostModal().step;
 
-  switch (postModalStep) {
+  switch (step) {
     case POST_MODAL_STEP.FORM:
       return <FormStep />;
     case POST_MODAL_STEP.VIDEO:

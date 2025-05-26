@@ -26,16 +26,14 @@ React + Vite + TypeScript 기반으로 개발되었으며,
 
 ### 작업 브랜치 규칙 (예정)
 
-| 타입        | 네이밍                    | 설명                                     |
-| ----------- | ------------------------- | ---------------------------------------- |
-| 초기 세팅   | `chore/init-project`      | 프로젝트 초기 설정 및 공통 구조 구성     |
-| 기능 구현   | `feat/post`               | 게시글 작성 관련 UI 및 흐름 구현         |
-| 기능 구현   | `feat/thumbnail`          | 썸네일 추출 기능 구현                    |
-| 공통 UI     | `feat/shared-ui`          | BaseModal, Button 등 공용 컴포넌트 구현  |
-| 스타일 작업 | `style/theme`             | Tailwind 테마, 전역 폰트, 스타일 설정 등 |
-| 리팩토링    | `refactor/thumbnail-flow` | 썸네일 흐름 리팩토링, 구조 개선 등       |
-| 문서 작성   | `docs/usage-guide`        | 모듈 사용 가이드 문서 및 샘플 작성       |
-| 배포 설정   | `deploy/vercel-config`    | Vercel 배포 설정 및 환경 구성            |
+| 타입      | 네이밍                    | 설명                                 |
+| --------- | ------------------------- | ------------------------------------ |
+| 초기 세팅 | `chore/init-project`      | 프로젝트 초기 설정 및 공통 구조 구성 |
+| 기능 구현 | `feat/post`               | 게시글 작성 관련 UI 및 흐름 구현     |
+| 기능 구현 | `feat/thumbnail`          | 썸네일 추출 기능 구현                |
+| 리팩토링  | `refactor/thumbnail-flow` | 썸네일 흐름 리팩토링, 구조 개선 등   |
+| 문서 작성 | `docs/usage-guide`        | 모듈 사용 가이드 문서 및 샘플 작성   |
+| 배포 설정 | `deploy/vercel-config`    | Vercel 배포 설정 및 환경 구성        |
 
 ## 2. 폴더 구조 (예정)
 
@@ -56,7 +54,7 @@ src/
 │   ├── components/            # 공용 UI 컴포넌트
 │   │   ├── ui/                # Button, Input 등 원자 단위 UI
 │   │   ├── layout/            # Wrapper, Container 등 배치 컴포넌트
-│   │   ├── modal/             # BaseModal, ModalHeader 등 모달 구조 전용
+│   │   ├── modal/             # Modal, ModalContent 등 모달 구조 전용
 │   │   ├── feedback/          # Alert, Toast 등 사용자 피드백
 │   │   └── index.ts
 │   ├── hooks/                 # 범용 커스텀 훅

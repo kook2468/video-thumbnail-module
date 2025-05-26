@@ -2,7 +2,7 @@ type Props = {
   onCapture: () => void;
 };
 
-export function CaptureButton({ onCapture }: Props) {
+export const CaptureButton = ({ onCapture }: Props) => {
   return (
     <div className="aspect-square basis-1/4 grow-0 min-w-0">
       <button
@@ -14,4 +14,4 @@ export function CaptureButton({ onCapture }: Props) {
       </button>
     </div>
   );
-}
+};

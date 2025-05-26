@@ -1,16 +1,22 @@
+/**
+ * ModalStore : 모달 열림 여부 및 Step 상태 관리 스토어
+ */
 import { create } from "zustand";
 import type { PostModalStep } from "../features/post/types";
 
-type ModalStore = {
-  /* PostModal 상태 */
+interface ModalStore {
+  /* PostModal */
   isPostModalOpen: boolean;
   postModalStep: PostModalStep;
   openPostModal: () => void;
   closePostModal: () => void;
   setPostModalStep: (step: PostModalStep) => void;
 
-  /* 다른 모달 사용시 여기 확장 예정 */
-};
+  /* PostDetail */
+  isPostDetailModalOpen: boolean;
+  openPostDetailModal: () => void;
+  closePostDetailModal: () => void;
+}
 
 export const useModalStore = create<ModalStore>((set) => ({
   /* PostModal */
@@ -20,5 +26,8 @@ export const useModalStore = create<ModalStore>((set) => ({
   closePostModal: () => set({ isPostModalOpen: false }),
   setPostModalStep: (step) => set({ postModalStep: step }),
 
-  /* 다른 모달 사용시 여기 확장 예정 */
+  /* PostDetail */
+  isPostDetailModalOpen: false,
+  openPostDetailModal: () => set({ isPostDetailModalOpen: true }),
+  closePostDetailModal: () => set({ isPostDetailModalOpen: false }),
 }));

@@ -1,7 +1,7 @@
 import type { ThumbnailItemProps } from "../../types";
 import { formatTime } from "../../utils/formatTime";
 
-export function ThumbnailItem(props: ThumbnailItemProps) {
+export const ThumbnailItem = (props: ThumbnailItemProps) => {
   const { src, time } = props;
 
   const handleClick = () => {
@@ -14,6 +14,7 @@ export function ThumbnailItem(props: ThumbnailItemProps) {
 
   return (
     <div
+      data-testid="thumbnail-item"
       className="relative group aspect-square basis-1/4 grow-0 min-w-0 rounded-xl overflow-hidden"
       onClick={handleClick}
     >
@@ -36,4 +37,4 @@ export function ThumbnailItem(props: ThumbnailItemProps) {
       )}
     </div>
   );
-}
+};
